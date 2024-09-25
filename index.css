@@ -1,0 +1,107 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#navbar a.book-call {
+    background-color: gold;
+    color: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    background-image: url('https://example.com/background-image.jpg'); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-quote {
+    background-color: red;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-quote:hover {
+    background-color: gold;
+    color: red;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #navbar {
+        flex-direction: column;
+    }
+
+    .btn-quote {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
