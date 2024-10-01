@@ -1,107 +1,228 @@
-/* General Styles */
-* {
+/* Basic global styles */
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: white;
-    color: #333;
+/* Header styles */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 200px 20px; /* Increased padding for hero section */
+    overflow: hidden;
+    height: 35vh; /* Full screen height */
 }
 
-/* Header */
-header {
-    background-color: white;
-    padding: 20px 0;
+#heroVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.header-container {
+    z-index: 1;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; /* Adjust font size as necessary */
+    margin: 0;
+    text-transform: uppercase; /* All caps */
+}
+
+.slogan {
+    font-size: 24px; /* Adjust font size as necessary */
+    margin: 20px 0; /* Increased spacing */
+    text-transform: uppercase; /* All caps */
+}
+
+.quote-btn {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quote-btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+/* Navigation styles */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+}
+
+.nav-list {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
     text-align: center;
 }
 
-#navbar {
+.nav-list.open {
+    display: flex;
+}
+
+.nav-list a {
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.nav-list a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* Picture blocks */
+.picture-reviews-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.picture-blocks {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
+    padding: 50px;
 }
 
-#navbar a {
-    text-decoration: none;
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
+.picture-blocks img,
+#centralVideo {
+    width: 250px; /* Increased size for images */
+    height: 350px; /* Increased height */
+    object-fit: cover;
 }
 
-#navbar a.book-call {
-    background-color: gold;
-    color: red;
-    padding: 10px 20px;
-    border-radius: 5px;
+/* Reviews Section */
+.reviews {
+    text-align: center;
+    padding: 20px; /* Reduced padding */
 }
 
-#navbar a:hover {
-    text-decoration: underline;
+.review-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    height: 40px; /* Set height for reviews */
 }
 
-/* Hero Section */
-.hero {
+.review-container p {
+    position: absolute; /* Position for animation */
+    animation: slide 6s ease-in-out infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    20% { transform: translateX(0); }
+    40% { transform: translateX(0); }
+    60% { transform: translateX(-100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* About Us Section */
+.about-us {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.about-heading {
+    color: gold;
+    text-transform: uppercase; /* All caps */
+    font-size: 28px; /* Adjust as needed */
+}
+
+.about-us p {
+    color: black;
+    margin: 20px 0; /* Increased spacing */
+}
+
+/* Mission Section */
+.mission {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.mission-heading {
+    color: gold;
+    text-transform: uppercase; /* All caps */
+    font-size: 28px; /* Adjust as needed */
+}
+
+.packages {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.package {
+    width: 250px;
+    height: 350px; /* Increased height for better visibility */
+    background-color: lightgray;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    height: 100vh;
-    background-image: url('https://example.com/background-image.jpg'); /* Placeholder */
-    background-size: cover;
-    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
-.container {
-    text-align: center;
-}
-
-h1 {
-    font-size: 4rem;
-    color: red;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.btn-quote {
-    background-color: red;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-quote:hover {
-    background-color: gold;
-    color: red;
+.package:hover {
+    transform: scale(1.1) rotate(5deg); /* Slant and enlarge on hover */
 }
 
 /* Footer */
 footer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
-    #navbar {
-        flex-direction: column;
-    }
+.footer-image {
+    width: 100%; /* Set size to fill container */
+    height: auto ; /* Maintain aspect ratio */
+}
 
-    .btn-quote {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
+.social-links img {
+    width: 30px;
+    margin: 0 10px;
 }

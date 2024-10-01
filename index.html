@@ -3,29 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RED POCKET STUDIO - Wedding videography and photography studio">
     <title>Red Pocket Studio</title>
     <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav id="navbar"></nav>
+    <!-- Header Section with Navigation -->
+    <header class="hero">
+        <div class="header-container">
+            <p class="slogan">WELCOME TO </p>
+            <h1 class="title">WELCOME TO RED POCKET STUDIO</h1>
+            <p class="slogan">YOUR MEMORIES, THROUGH OUR LENS</p>
+            <button class="quote-btn">Get a Quote</button>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+            </button>
+        </div>
+        <nav class="nav-list" id="navList">
+            <!-- Navigation items will be inserted via JS -->
+        </nav>
+        <video autoplay muted loop id="heroVideo">
+            <source src="hero-video.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Your Memories, <br>Through our Lens</h1>
-            <a href="#" class="btn-quote">Get a Quote</a>
+    <!-- Picture Blocks and Client Reviews -->
+    <section class="picture-reviews-section">
+        <div class="picture-blocks">
+            <img src="img1.jpg" alt="Picture 1">
+            <video autoplay muted loop id="centralVideo">
+                <source src="central-video.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <img src="img2.jpg" alt="Picture 2">
+        </div>
+        <div class="reviews">
+            <div class="review-container">
+                <p id="reviewText">Loading reviews...</p>
+                <p id="reviewText2" class="hidden">Another review!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="aboutUs">
+        <h2 class="about-heading">ABOUT RED POCKET STUDIO</h2>
+        <p>We're seasoned photographers, with a portfolio of over 100 weddings covered in the span of only 5 years...</p>
+    </section>
+
+    <!-- Your Choice, Our Mission Section -->
+    <section class="mission">
+        <h2 class="mission-heading">YOUR CHOICE, OUR MISSION</h2>
+        <div class="packages">
+            <div class="package clickable">Photography</div>
+            <div class="package clickable">Videography</div>
+            <div class="package clickable">Video & Photo</div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Red Pocket Studio | All rights reserved</p>
+        <div class="footer-content">
+            <img src="img25.JPG" alt="Footer Image" class="footer-image">
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+                <a href="https://wa.me" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
+                <a href="mailto:email@example.com"><img src="email-icon.png" alt="Email"></a>
+                <a href="tel:+1234567890"><img src="phone-icon.png" alt="Phone"></a>
+            </div>
+        </div>
     </footer>
-
-    <script src="index.js"></script>
 </body>
 </html>
