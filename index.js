@@ -23,14 +23,20 @@ function createNavList() {
 }
 
 // Toggle navigation visibility
+// Correct the toggle class functionality for navigation
 menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('open');
+    if (navList.style.display === 'none' || navList.style.display === '') {
+        navList.style.display = 'flex';  // Show the nav list
+    } else {
+        navList.style.display = 'none';  // Hide the nav list
+    }
 });
+
 
 // Call function to create the nav list
 createNavList();
 
-// Sample reviews for client reviews section
+let currentReview = 0;
 const reviews = [
     "Great experience! Loved the video.",
     "Highly recommended for photography and videography!",
@@ -38,17 +44,15 @@ const reviews = [
     "Amazing service and beautiful photos!"
 ];
 
-let currentReview = 0;
 const reviewText = document.getElementById('reviewText');
-const reviewText2 = document.getElementById('reviewText2');
 
-// Sliding reviews from left to right
-function showReview() {
+// Function to update reviews
+function updateReview() {
     reviewText.textContent = reviews[currentReview];
-    reviewText2.textContent = reviews[(currentReview + 1) % reviews.length];
-    currentReview = (currentReview + 1) % reviews.length;
+    currentReview = (currentReview + 1) % reviews.length; // Loop through reviews
 }
 
 // Auto show reviews every 3 seconds
-setInterval(showReview, 3000);
-showReview(); // Show the first review immediately
+setInterval(updateReview, 3000);
+updateReview(); // Show the first review immediately
+
