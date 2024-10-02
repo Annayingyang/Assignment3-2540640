@@ -1,6 +1,6 @@
 /* Basic global styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Italiana', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,72 +31,106 @@ body {
 }
 
 .title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Italiana', serif;
     font-size: 48px; /* Adjust font size as necessary */
     margin: 0;
     text-transform: uppercase; /* All caps */
 }
 
 .slogan {
-    font-size: 24px; /* Adjust font size as necessary */
-    margin: 20px 0; /* Increased spacing */
-    text-transform: uppercase; /* All caps */
+    font-size: 24px; 
+    margin: 20px 0;
+    text-transform: uppercase; 
 }
 
-.quote-btn {
-    background-color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.quote-btn:hover {
-    background-color: rgb(0, 0, 0);
-    color: #fff;
-}
-
-/* Navigation styles */
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-icon {
-    width: 30px;
-    height: 3px;
-    background: #fff;
-    margin: 5px 0;
-}
-
-.nav-list {
-    display: none;
-    flex-direction: column;
-    list-style: none;
-    background: rgba(0, 0, 0, 0.8);
+.hamburger {
     position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
     top: 0;
-    right: 0;
-    width: 200px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
     text-align: center;
-}
-
-.nav-list.open {
-    display: flex;
-}
-
-.nav-list a {
-    color: #fff;
-    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  .overlay-content a {
+    padding: 8px;
     text-decoration: none;
-    transition: transform 0.3s, background 0.3s;
-}
+    font-size: 36px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay-content a:hover {
+    color: gold;
+  }
+  
+  .closebtn {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
 
-.nav-list a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1) rotate(-2deg);
-}
+  .quote-btn,
+  .footer-quote-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .quote-btn:hover,
+  .footer-quote-btn:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+  }
+  
+  .form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .form-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+
+
+
 
 /* Picture blocks */
 .picture-reviews-section {
@@ -121,24 +155,29 @@ body {
 }
 
 /* Reviews Section */
-.reviews {
+.client-reviews {
     text-align: center;
-    padding: 20px; /* Reduced padding */
-}
-
-.review-container {
+    margin-top: 50px;
+  }
+  
+  .review-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    overflow: hidden; /* Hide overflow */
-    position: relative;
-    height: 40px; /* Set height for reviews */
+    align-items: center;
+  }
+  
+
+/* Fading animations */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
-.review-container p {
-    position: absolute; /* Position for animation */
-    animation: slide 6s ease-in-out infinite;
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
+
 
 @keyframes slide {
     0% { transform: translateX(100%); }
@@ -168,6 +207,18 @@ body {
     color: black;
     margin: 20px 0; /* Increased spacing */
 }
+
+.about-us {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about-us.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Mission Section */
 .mission {

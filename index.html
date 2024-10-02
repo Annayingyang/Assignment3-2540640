@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 </head>
+
+
 <body>
     <!-- Header Section with Navigation -->
     <header class="hero">
@@ -16,23 +18,51 @@
             <p class="slogan">WELCOME TO </p>
             <h1 class="title">WELCOME TO RED POCKET STUDIO</h1>
             <p class="slogan">YOUR MEMORIES, THROUGH OUR LENS</p>
-            <button class="quote-btn">Get a Quote</button>
-            <button class="menu-toggle" id="menuToggle">
-                <span class="menu-icon"></span>
-                <span class="menu-icon"></span>
-                <span class="menu-icon"></span>
-            </button>
-        </div>
-        <nav class="nav-list" id="navList">
-            <!-- Navigation items will be inserted via JS -->
-        </nav>
+            <!--<button class="quote-btn">Get a Quote</button>-->
+            <button class="quote-btn" onclick="openForm()">Get a Quote</button>
+  <div id="quoteForm" class="form-overlay">
+    <div class="form-content">
+      <span class="closebtn" onclick="closeForm()">&times;</span>
+      <form id="quoteFormContent">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+        <button type="submit" class="submit-btn">Book a Call</button>
+      </form>
+    </div>
+  </div>
+
+<!-- navigation -->
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+  <div id="navOverlay" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="index.html">Home</a>
+      <a href="#about-us">About Us</a>
+      <a href="packages.html">Packages</a>
+      <a href="ourwork.html">Our Work</a>
+      <a href="wireframes.html">Wireframes</a>
+    </div>
+  </div>
+</div>
+
+
         <video autoplay muted loop id="heroVideo">
             <source src="hero-video.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
     </header>
 
-    <!-- Picture Blocks and Client Reviews -->
+    
+
+    
+
+    <!-- Picture Blocks and Client Reviews section -->
     <section class="picture-reviews-section">
         <div class="picture-blocks">
             <img src="img1.jpg" alt="Picture 1">
@@ -42,13 +72,15 @@
             </video>
             <img src="img2.jpg" alt="Picture 2">
         </div>
-        <div class="reviews">
-            <div class="review-container">
-                <p id="reviewText">Loading reviews...</p>
-                <p id="reviewText2" class="hidden">Another review!</p>
-            </div>
-        </div>
     </section>
+
+    <section class="client-reviews">
+        <div class="review-container">
+          <div id="reviewContent" class="review-content">
+            <!-- Client Reviews will be here -->
+          </div>
+        </div>
+      </section>
 
     <!-- About Us Section -->
     <section class="about-us" id="aboutUs">
@@ -60,9 +92,14 @@
     <section class="mission">
         <h2 class="mission-heading">YOUR CHOICE, OUR MISSION</h2>
         <div class="packages">
-            <div class="package clickable">Photography</div>
-            <div class="package clickable">Videography</div>
-            <div class="package clickable">Video & Photo</div>
+            <div class="package clickable" onclick="location.href='packages.html'">
+                <img src="image1.jpg" alt="Photography Package"></div>
+
+            <div class="package clickable"onclick="location.href='packages.html'">
+                <img src="image2.jpg" alt="Videography Package"></div>
+
+            <div class="package clickable"onclick="location.href='packages.html'">
+                <img src="image2.jpg" alt="Videography Package"></div>
         </div>
     </section>
 
@@ -71,12 +108,14 @@
         <div class="footer-content">
             <img src="img25.JPG" alt="Footer Image" class="footer-image">
             <div class="social-links">
-                <a href="https://instagram.com" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
-                <a href="https://wa.me" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
-                <a href="mailto:email@example.com"><img src="email-icon.png" alt="Email"></a>
-                <a href="tel:+1234567890"><img src="phone-icon.png" alt="Phone"></a>
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://wa.me/your-number">WhatsApp</a>
+                <a href="mailto:youremail@example.com">Email</a>
+                <a href="tel:+yourphonenumber">Phone</a>
+              </div>
+              <button class="footer-quote-btn" onclick="openForm()">Book a Call</button>
             </div>
-        </div>
-    </footer>
+          </footer>
+          <script src="index.js"></script>      
 </body>
 </html>
