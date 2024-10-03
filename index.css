@@ -45,52 +45,83 @@ body {
 
 
 .hamburger {
+    font-size: 30px; /* Increase this value to make it larger */
+    padding: 10px;
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
   }
   
+  /* navigation menu*/
   .overlay {
     height: 100%;
-    width: 0;
+    width: 0; /* Start hidden */
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
-    transition: 0.5s;
-  }
-  
-  .overlay-content {
-    position: relative;
-    top: 25%;
-    width: 100%;
+    transition: width 0.5s; /* Smooth transition for the width */
+}
+
+.overlay-content {
+    position: absolute; /* Change to absolute for better control */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); 
+    width: 90%; 
+    max-width: 400px; 
     text-align: center;
-    margin-top: 30px;
-  }
-  
-  .overlay-content a {
-    padding: 8px;
+}
+
+.overlay-content a {
+    padding: 12px; /* Increased padding for better touch targets */
     text-decoration: none;
-    font-size: 36px;
+    font-size: 36px; 
     color: white;
     display: block;
-    transition: 0.3s;
-  }
-  
-  .overlay-content a:hover {
+    transition: color 0.3s; 
+}
+
+
+.overlay-content a:hover {
     color: gold;
-  }
-  
-  .closebtn {
+}
+
+/* Close button styling */
+.closebtn {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
     position: absolute;
     cursor: pointer;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-  }
+    top: 10px; /* Positioned near the top */
+    right: 15px; /* Right padding */
+    font-size: 40px; /* Size for the close button */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .overlay-content {
+        top: 50%; /* Center for tablets */
+    }
+
+    .overlay-content a {
+        font-size: 28px; /* Smaller font size on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-content {
+        top: 50%; /* Center for mobile */
+    }
+
+    .overlay-content a {
+        font-size: 24px; /* Even smaller font size on mobile */
+    }
+}
+
 
   .quote-btn,
   .footer-quote-btn {
@@ -109,6 +140,7 @@ body {
     color: rgb(255, 255, 255);
   }
   
+  /* booking call one */
   .form-overlay {
     display: none;
     position: fixed;
@@ -120,15 +152,59 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
-  
-  .form-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-  }
+}
 
+.form-content {
+    background-color: rgb(0, 0, 0);
+    padding: 40px; 
+    border-radius: 12px; 
+    width: 90%; 
+    max-width: 600px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    margin: 0 auto; 
+}
 
+/* Media Queries for Tablets and Mobile Devices */
+@media (max-width: 768px) {
+    .form-content {
+        padding: 30px; 
+        width: 90%; 
+        max-width: 500px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .form-content {
+        padding: 20px; 
+        width: 95%; /* Use more space on mobile */
+        max-width: 95%; 
+        border-radius: 10px; /* Maintain rounded corners */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+    }
+
+    /* Make inputs and buttons more responsive */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%; 
+        padding: 12px; 
+        margin: 10px 0; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+    }
+
+    button {
+        width: 100%; 
+        padding: 12px; 
+        margin-top: 10px; 
+        border: none; /* Remove default border */
+        border-radius: 4px; 
+        background-color: gold; 
+        color: white; 
+        cursor: pointer; 
+        font-size: 16px; 
+    }
+}
 
 
 
@@ -147,12 +223,36 @@ body {
     padding: 50px;
 }
 
+/* Set dimensions for images and video */
 .picture-blocks img,
 #centralVideo {
-    width: 250px; /* Increased size for images */
-    height: 350px; /* Increased height */
-    object-fit: cover;
+    width: 250px; /* Set the width for images */
+    height: 350px; /* Set the height for images */
+    object-fit: cover; /* Maintain aspect ratio */
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .picture-blocks {
+        flex-direction: column; /* Stack pictures vertically on smaller screens */
+        align-items: center; /* Center align items */
+        padding: 20px; /* Reduce padding */
+    }
+
+    .picture-blocks img,
+    #centralVideo {
+        width: 90%; /* Use more of the available width */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 250px; /* Limit max width */
+    }
+}
+
+@media (max-width: 480px) {
+    .picture-reviews-section {
+        padding: 30px 10px; /* Adjust padding for mobile */
+    }
+}
+
 
 /* Reviews Section */
 .client-reviews {
@@ -232,16 +332,19 @@ body {
     font-size: 28px; /* Adjust as needed */
 }
 
+/* Packages Section */
 .packages {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Space between the packages */
     padding: 50px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
+/* Individual Package Styling */
 .package {
-    width: 250px;
-    height: 350px; /* Increased height for better visibility */
+    width: 250px; /* Original size for larger screens */
+    height: 350px; /* Original height */
     background-color: lightgray;
     display: flex;
     justify-content: center;
@@ -250,30 +353,78 @@ body {
     transition: transform 0.3s;
 }
 
+/* Package Hover Effect */
 .package:hover {
     transform: scale(1.1) rotate(5deg); /* Slant and enlarge on hover */
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .packages {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .package {
+        width: 180px; /* Smaller width for tablets */
+        height: 250px; /* Smaller height for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .packages {
+        padding: 10px; /* Further reduce padding for mobile */
+    }
+
+    .package {
+        width: 100%; /* Full width on mobile */
+        max-width: 150px; /* Limit max width */
+        height: 200px; /* Adjust height for mobile */
+    }
+}
+
+
 /* Footer */
 footer {
     display: flex;
-    justify-content: center;
-    padding: 20px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    padding: 20px; /* Add some padding */
+    background-color: #f8f8f8; /* Optional: Add a background color for contrast */
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width of the footer */
+    max-width: 1200px; /* Limit the width for larger screens */
+    padding: 10px 20px; /* Add some padding */
 }
 
 .footer-image {
     width: 100%; /* Set size to fill container */
-    height: auto ; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 200px; /* Optional: Limit maximum width for images */
+}
+
+.social-links {
+    display: flex; /* Use flexbox for social links */
+    align-items: center; /* Center items vertically */
 }
 
 .social-links img {
-    width: 30px;
-    margin: 0 10px;
+    width: 30px; /* Size of the social icons */
+    margin: 0 10px; /* Space between icons */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center align items */
+    }
+
+    .social-links img {
+        width: 25px; /* Smaller icons on mobile */
+    }
 }

@@ -65,14 +65,21 @@
     <!-- Picture Blocks and Client Reviews section -->
     <section class="picture-reviews-section">
         <div class="picture-blocks">
-            <img src="img1.jpg" alt="Picture 1">
-            <video autoplay muted loop id="centralVideo">
-                <source src="central-video.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-            <img src="img2.jpg" alt="Picture 2">
+            <div class="picture-block">
+                <img src="img1.jpg" alt="Picture 1">
+            </div>
+            <div class="picture-block central-video">
+                <video autoplay muted loop>
+                    <source src="central-video.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="picture-block">
+                <img src="img2.jpg" alt="Picture 2">
+            </div>
         </div>
     </section>
+    
 
     <section class="client-reviews">
         <div class="review-container">
@@ -116,6 +123,6 @@
               <button class="footer-quote-btn" onclick="openForm()">Book a Call</button>
             </div>
           </footer>
-          <script src="index.js"></script>      
+               
 </body>
 </html>
