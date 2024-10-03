@@ -19,7 +19,7 @@ function loadCalendly() {
     const calendlyDiv = document.getElementById('calendly-widget');
     calendlyDiv.innerHTML = `
         <iframe 
-            src="https://calendly.com/annaying-yang07/30min" 
+            src="https://calendly.com/redpocket_studio/30min" 
             width="100%" 
             height="600px" 
             frameborder="0" 
