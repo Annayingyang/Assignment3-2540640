@@ -199,9 +199,9 @@ body {
 
 /* Set dimensions for images and video */
 .picture-blocks img,
-#centralVideo {
-    width: 250px; /* Set the width for images */
-    height: 350px; /* Set the height for images */
+.picture-blocks video { /* Updated selector for video */
+    width: 250px; /* Set the width for images and video */
+    height: 350px; /* Set the height for images and video */
     object-fit: cover; /* Maintain aspect ratio */
 }
 
@@ -214,16 +214,10 @@ body {
     }
 
     .picture-blocks img,
-    #centralVideo {
-        width: 90%; /* Use more of the available width */
+    .picture-blocks video { /* Updated selector for video */
+        width: 90%; 
         height: auto; /* Maintain aspect ratio */
         max-width: 250px; /* Limit max width */
-    }
-}
-
-@media (max-width: 480px) {
-    .picture-reviews-section {
-        padding: 30px 10px; /* Adjust padding for mobile */
     }
 }
 
@@ -295,6 +289,7 @@ body {
 
 
 /* Mission Section */
+/* Mission Section */
 .mission {
     text-align: center;
     padding: 50px 20px;
@@ -325,12 +320,21 @@ body {
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s;
+    overflow: hidden; /* Ensure the image stays within the container */
+}
+
+.package img {
+    width: 100%; /* Make the image take up full width of container */
+    height: 100%; /* Make the image take up full height of container */
+    object-fit: cover; /* Ensures the image scales properly within the container */
 }
 
 /* Package Hover Effect */
 .package:hover {
     transform: scale(1.1) rotate(5deg); /* Slant and enlarge on hover */
 }
+
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
