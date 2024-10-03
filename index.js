@@ -1,3 +1,5 @@
+
+
 // Toggle Navigation
 function toggleNav() {
     const overlay = document.getElementById('navOverlay');
@@ -7,7 +9,7 @@ function toggleNav() {
 // Quote Form Toggle
 function openForm() {
     document.getElementById('quoteForm').style.display = 'flex';
-    loadCalendly(); // Load Calendly widget when the form is opened
+    loadCalendly(); 
 }
 
 function closeForm() {
@@ -59,15 +61,63 @@ function loadCalendly() {
   // using with first review
   showReview();
 
+  // Client Count Animation
+  let clientCount = 0; // Starting point
+  const targetCount = 1.5; // Target count in thousands
+  const countElement = document.getElementById('clientCount');
+  let hasCounted = false; // Flag to check if counting has already started
+  
+  // Function to update the client count
+  const updateCount = () => {
+      const interval = setInterval(() => {
+          if (clientCount < targetCount) {
+              clientCount += 0.05; // Increment by 0.01k
+              countElement.textContent = clientCount.toFixed(1) + 'k Weddings'; // Update the text
+          } else {
+              clearInterval(interval); // Stop once the target is reached
+          }
+      }, 20);
+  };
+  
+  // Intersection Observer to trigger counting when the client reviews section is visible
+  const clientReviewsSection = document.querySelector('.client-reviews');
+  
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting && !hasCounted) {
+              updateCount(); // Start counting
+              hasCounted = true; // Set the flag to true to prevent multiple counts
+          }
+      });
+  }, { threshold: 0.5 }); 
+  
+  observer.observe(clientReviewsSection); 
+  
+
 // Fade in About Us section on scroll
 const aboutSection = document.getElementById('aboutUs');
 
-const observer = new IntersectionObserver((entries) => {
+const aboutObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             aboutSection.classList.add('fade-in');
         }
     });
-}, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+}, { threshold: 0.5 }); 
 
-observer.observe(aboutSection);
+aboutObserver.observe(aboutSection);
+
+// Fade in Story Section on scroll
+const storySection = document.querySelector('.text-container');
+
+const storyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            storySection.classList.add('fade-in-story', 'visible');
+        } else {
+            storySection.classList.remove('visible'); 
+        }
+    });
+}, { threshold: 0.5 }); 
+
+storyObserver.observe(storySection);

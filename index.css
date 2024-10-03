@@ -1,19 +1,24 @@
 /* Basic global styles */
 body {
-    font-family: 'Italiana', serif;
+    background-color: black; 
+    color: white; 
+    font-family: 'Arial', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Header styles */
+/* Header (Hero) styles */
 .hero {
     position: relative;
     text-align: center;
     color: #fff;
-    padding: 200px 20px; /* Increased padding for hero section */
+    padding: 100px 20px; /* Increased padding */
     overflow: hidden;
-    height: 35vh; /* Full screen height */
+    height: 60vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #heroVideo {
@@ -26,13 +31,29 @@ body {
     z-index: -1;
 }
 
+/* Media Query for larger screens (adjust hero size) */
+@media (min-width: 1200px) {
+    .hero {
+        padding: 150px 20px; 
+    }
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .hero {
+        height: 85vh; 
+        padding: 80px 20px; 
+    }
+}
+
+
 .header-container {
     z-index: 1;
 }
 
 .title {
     font-family: 'Italiana', serif;
-    font-size: 48px; /* Adjust font size as necessary */
+    font-size: 48px; 
     margin: 0;
     text-transform: uppercase; /* All caps */
 }
@@ -63,13 +84,13 @@ body {
     left: 0;
     background-color: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
-    transition: width 0.5s; /* Smooth transition for the width */
+    transition: width 0.5s; 
 }
 
 .overlay-content {
-    position: absolute; /* Change to absolute for better control */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
     transform: translate(-50%, -50%); 
     width: 90%; 
     max-width: 400px; 
@@ -87,7 +108,7 @@ body {
 
 
 .overlay-content a:hover {
-    color: gold;
+    color:#FFD700;
 }
 
 /* Close button styling */
@@ -96,9 +117,9 @@ body {
     text-decoration: none;
     position: absolute;
     cursor: pointer;
-    top: 10px; /* Positioned near the top */
-    right: 15px; /* Right padding */
-    font-size: 40px; /* Size for the close button */
+    top: 10px; 
+    right: 15px; 
+    font-size: 40px; 
 }
 
 /* Media Queries for Responsiveness */
@@ -143,8 +164,8 @@ body {
   /* booking call one */
   .form-overlay {
     display: none; /* Initially hidden */
-    position: fixed; /* Fixed position */
-    top: 0; /* Cover the entire viewport */
+    position: fixed; 
+    top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
@@ -181,45 +202,102 @@ body {
 
 
 
-
-/* Picture blocks */
-.picture-reviews-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 20px;
-}
-
-.picture-blocks {
+/* Story Section */
+.story-section {
+    background-color: black; 
+    padding: 40px 20px; /*  padding */
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 50px;
+    align-items: center;
+    color: white;  
+    min-height: 60vh; 
 }
 
-/* Set dimensions for images and video */
-.picture-blocks img,
-.picture-blocks video { /* Updated selector for video */
-    width: 250px; /* Set the width for images and video */
-    height: 350px; /* Set the height for images and video */
-    object-fit: cover; /* Maintain aspect ratio */
+/* Container for video and text */
+.story-content {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
-/* Media Queries for Responsiveness */
+/* Video Container */
+.video-container {
+    position: relative; /* Position relative for absolute children */
+    width: 100%; 
+    max-width: 600px; 
+}
+
+/* Video Styling */
+.video-container iframe {
+    width: 100%; /* Responsive video */
+    height: 100%; 
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    border: 8px solid rgb(255, 255, 255); 
+    border-radius: 10px; 
+}
+
+/* Text Container */
+.text-container {
+    max-width: 700px; /* Slightly increase the max width */
+    text-align: left; 
+    flex: 1; /* Ensure text takes up remaining space */
+}
+
+/* Heading Styling */
+.text-container h2 {
+    font-family: 'Italiana', serif; 
+    font-size: 32px; 
+    color: rgb(255, 255, 255); 
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+.text-container p {
+    font-size: 18px;
+    line-height: 1.6; 
+}
+
+/* Emphasize the quote */
+.text-container em {
+    color: #ffffff; 
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* Fade-in effect for the Story Section */
+.fade-in-story {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-story.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Media Queries for Responsive Layout */
 @media (max-width: 768px) {
-    .picture-blocks {
-        flex-direction: column; /* Stack pictures vertically on smaller screens */
-        align-items: center; /* Center align items */
-        padding: 20px; /* Reduce padding */
+    .story-content {
+        flex-direction: column; 
+        text-align: center;
     }
 
-    .picture-blocks img,
-    .picture-blocks video { /* Updated selector for video */
-        width: 90%; 
-        height: auto; /* Maintain aspect ratio */
-        max-width: 250px; /* Limit max width */
+    .video-container iframe {
+        max-width: 100%; 
+    }
+
+    .text-container {
+        max-width: 100%; 
     }
 }
+
+
 
 
 /* Reviews Section */
@@ -227,6 +305,22 @@ body {
     text-align: center;
     margin-top: 50px;
   }
+  
+.header-container {
+    margin-bottom: 20px; /* Space between header and reviews */
+}
+
+.header-container h2 {
+    font-size: 2em; 
+    color: #fffffe; 
+}
+
+.count-container {
+    margin-bottom: 20px; 
+    font-size: 2em; 
+    color: #ffffff; 
+}
+
   
   .review-container {
     display: flex;
@@ -259,6 +353,9 @@ body {
     display: none;
 }
 
+
+
+
 /* About Us Section */
 .about-us {
     text-align: center;
@@ -266,14 +363,14 @@ body {
 }
 
 .about-heading {
-    color: gold;
+    color: rgb(255, 255, 255);
     text-transform: uppercase; /* All caps */
-    font-size: 28px; /* Adjust as needed */
+    font-size: 28px; 
 }
 
 .about-us p {
-    color: black;
-    margin: 20px 0; /* Increased spacing */
+    color: rgb(255, 255, 255);
+    margin: 20px 0; 
 }
 
 .about-us {
@@ -289,16 +386,16 @@ body {
 
 
 /* Mission Section */
-/* Mission Section */
+
 .mission {
     text-align: center;
     padding: 50px 20px;
 }
 
 .mission-heading {
-    color: gold;
-    text-transform: uppercase; /* All caps */
-    font-size: 28px; /* Adjust as needed */
+    color: rgb(255, 255, 255);
+    text-transform: uppercase; 
+    font-size: 28px; 
 }
 
 /* Packages Section */
@@ -307,31 +404,32 @@ body {
     justify-content: center;
     gap: 20px; /* Space between the packages */
     padding: 50px;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap; 
 }
 
 /* Individual Package Styling */
 .package {
-    width: 250px; /* Original size for larger screens */
-    height: 350px; /* Original height */
+    width: 250px; 
+    height: 350px; 
     background-color: lightgray;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s;
-    overflow: hidden; /* Ensure the image stays within the container */
+    overflow: hidden; 
+
 }
 
 .package img {
-    width: 100%; /* Make the image take up full width of container */
-    height: 100%; /* Make the image take up full height of container */
-    object-fit: cover; /* Ensures the image scales properly within the container */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 }
 
 /* Package Hover Effect */
 .package:hover {
-    transform: scale(1.1) rotate(5deg); /* Slant and enlarge on hover */
+    transform: scale(1.1) rotate(5deg); 
 }
 
 
@@ -339,70 +437,66 @@ body {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .packages {
-        padding: 20px; /* Reduce padding for smaller screens */
+        padding: 20px; 
     }
 
     .package {
-        width: 180px; /* Smaller width for tablets */
-        height: 250px; /* Smaller height for tablets */
+        width: 180px; 
+        height: 250px; 
     }
 }
 
 @media (max-width: 480px) {
     .packages {
-        padding: 10px; /* Further reduce padding for mobile */
+        padding: 10px; 
     }
 
     .package {
-        width: 100%; /* Full width on mobile */
-        max-width: 150px; /* Limit max width */
-        height: 200px; /* Adjust height for mobile */
+        width: 100%; 
+        max-width: 150px; 
+        height: 200px; 
     }
 }
 
 
 /* Footer */
 footer {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items */
-    padding: 20px; /* Add some padding */
-    background-color: #f8f8f8; /* Optional: Add a background color for contrast */
+    background-color: #222; 
+    color: #fff; 
+    padding: 20px 0; 
+    text-align: center; 
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-    width: 100%; /* Full width of the footer */
-    max-width: 1200px; /* Limit the width for larger screens */
-    padding: 10px 20px; /* Add some padding */
-}
-
-.footer-image {
-    width: 100%; /* Set size to fill container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Optional: Limit maximum width for images */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
 }
 
 .social-links {
-    display: flex; /* Use flexbox for social links */
-    align-items: center; /* Center items vertically */
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-bottom: 15px; 
 }
 
-.social-links img {
-    width: 30px; /* Size of the social icons */
-    margin: 0 10px; /* Space between icons */
+.social-links a {
+    color: #fff; 
+    text-decoration: none; 
+    transition: color 0.3s; 
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center align items */
-    }
-
-    .social-links img {
-        width: 25px; /* Smaller icons on mobile */
-    }
+.social-links a:hover {
+    color: #FFD700; 
 }
+
+.footer-content .contact-info {
+    margin-top: 10px; 
+    font-size: 14px; 
+}
+
+.footer-content .contact-info a {
+    color: #fff; 
+    text-decoration: underline; 
+}
+
