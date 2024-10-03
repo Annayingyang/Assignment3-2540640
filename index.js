@@ -2,16 +2,31 @@
 function toggleNav() {
     const overlay = document.getElementById('navOverlay');
     overlay.style.width = overlay.style.width === '100%' ? '0' : '100%';
-  }
-  
-  // Quote Form Toggle
-  function openForm() {
+}
+
+// Quote Form Toggle
+function openForm() {
     document.getElementById('quoteForm').style.display = 'flex';
-  }
-  
-  function closeForm() {
+    loadCalendly(); // Load Calendly widget when the form is opened
+}
+
+function closeForm() {
     document.getElementById('quoteForm').style.display = 'none';
-  }
+}
+
+// Load Calendly Widget
+function loadCalendly() {
+    const calendlyDiv = document.getElementById('calendly-widget');
+    calendlyDiv.innerHTML = `
+        <iframe 
+            src="https://calendly.com/annaying-yang07/30min" 
+            width="100%" 
+            height="600px" 
+            frameborder="0" 
+            scrolling="no">
+        </iframe>`;
+}
+
   
   // Client Reviews
   const reviews = [

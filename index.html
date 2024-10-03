@@ -20,22 +20,16 @@
             <p class="slogan">YOUR MEMORIES, THROUGH OUR LENS</p>
             <!--<button class="quote-btn">Get a Quote</button>-->
             <button class="quote-btn" onclick="openForm()">Get a Quote</button>
-  <div id="quoteForm" class="form-overlay">
-    <div class="form-content">
-      <span class="closebtn" onclick="closeForm()">&times;</span>
-      <form id="quoteFormContent">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" required>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required>
-        <button type="submit" class="submit-btn">Book a Call</button>
-      </form>
-    </div>
-  </div>
+            
+            <div id="quoteForm" class="form-overlay">
+                <div class="form-content">
+                    <span class="closebtn" onclick="closeForm()">&times;</span>
+                    <div id="calendly-widget">
+                        <!-- Calendly inline widget will be inserted here -->
+                    </div>
+                </div>
+            </div>
+            
 
 <!-- navigation -->
   <div class="hamburger" onclick="toggleNav()">&#9776;</div>
