@@ -19,6 +19,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 300px; 
+    border-bottom-right-radius: 300px; 
 }
 
 #heroVideo {
@@ -43,6 +45,8 @@ body {
     .hero {
         height: 85vh; 
         padding: 80px 20px; 
+        border-bottom-left-radius: 0; 
+        border-bottom-right-radius: 0;
     }
 }
 
