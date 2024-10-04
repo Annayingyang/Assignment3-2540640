@@ -13,7 +13,7 @@ body {
 /* Hero Section Styling */
 .hero {
     height: 85vh;
-    background-image: url('../img/img1.JPG'); 
+    background-image: url('../img/bckw1.jpg'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -32,7 +32,7 @@ body {
     font-size: 24px; 
     margin-bottom: 0.5rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.756);
 
 }
 
@@ -41,7 +41,7 @@ body {
     font-size: 48px; 
     font-weight: bold;
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.756);
 }
 
 
@@ -78,6 +78,7 @@ body {
     font-size: 30px;
     cursor: pointer;
     color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.756);
 }
 
 /* Overlay Menu */
@@ -90,6 +91,7 @@ body {
     background-color: rgba(52, 49, 49, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
+    z-index: 1000;
 }
 
 .overlay-content {
@@ -140,3 +142,91 @@ body {
     }
 }
 
+/* Intro 3D  */
+
+
+.wedding-invitation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.invitation-container {
+    display: flex;
+    align-items: center;
+}
+
+.invitation-template {
+    perspective: 1000px; /* Perspective for 3D effect */
+    margin-right: 20px; /* Space between template and text */
+}
+
+.invitation-template img {
+    width: 300px; /* Adjust as needed */
+    height: auto;
+    transition: transform 1s; /* Smooth rotation */
+}
+
+.invitation-text {
+    max-width: 600px; /* Adjust width as needed */
+}
+
+.invitation-text h2 {
+    font-family: 'Italiana', serif;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 15px; /* Gap between heading and paragraph */
+}
+
+.invitation-text p {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .wedding-invitation {
+        flex-direction: column; /* Stack the 3D model and text vertically */
+        padding: 30px 15px;
+    }
+
+    .invitation-template {
+        margin-bottom: 20px; /* Add some space between the image and the text */
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .invitation-template img {
+        width: 200px; /* Reduce image size for smaller screens */
+    }
+
+    .invitation-text {
+        text-align: center; /* Center text for mobile */
+        max-width: 90%; /* Ensure the text doesn't take up too much width */
+    }
+
+    .invitation-text h2 {
+        font-size: 28px; /* Smaller font for the heading */
+    }
+
+    .invitation-text p {
+        font-size: 16px; /* Slightly smaller font for the paragraph */
+    }
+}
+
+/* Responsive for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .invitation-template img {
+        width: 150px; /* Further reduce image size for very small screens */
+    }
+
+    .invitation-text h2 {
+        font-size: 24px; /* Smaller heading size */
+    }
+
+    .invitation-text p {
+        font-size: 14px; /* Smaller text size */
+    }
+}

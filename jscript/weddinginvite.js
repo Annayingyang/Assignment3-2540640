@@ -36,3 +36,22 @@ function loadCalendly() {
             </iframe>`;
     }
 }
+
+// Function to slant the invitation template
+function slantTemplate() {
+    const template = document.getElementById("invitationTemplate");
+    let angle = 0;
+    let direction = 1; // 1 for right, -1 for left
+
+    setInterval(() => {
+        if (angle >= 15 || angle <= -15) {
+            direction *= -1; // Change direction
+        }
+        angle += direction; // Increment the angle
+        template.style.transform = `rotateY(${angle}deg)`; // Apply rotation
+    }, 60); // Adjust speed by changing the interval
+}
+
+// Call the function to start slanting effect
+slantTemplate();
+
