@@ -1,0 +1,179 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black; 
+    color: white; 
+}
+
+/* Hero Section Styling */
+.hero {
+    height: 85vh;
+    background-image: url('../img/img1.JPG'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+    border-bottom-left-radius: 0 ;
+    border-bottom-right-radius: 0; 
+}
+
+.header-container .slogan {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.header-container .title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .hero {
+        border-bottom-left-radius: 300px; 
+        border-bottom-right-radius: 300px; 
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+    .hero {
+        height: 70vh; 
+        border-bottom-left-radius: 0; 
+        border-bottom-right-radius: 0; 
+    }
+
+    .header-container .slogan {
+        font-size: 1.2rem; 
+    }
+
+    .header-container .title {
+        font-size: 2.5rem; 
+    }
+}
+
+/* Hamburger Icon Styling */
+.hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Overlay Menu */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 49, 49, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+}
+
+.overlay-content a {
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay-content a:hover {
+    color: gold;
+}
+
+.closebtn {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* overlay for smaller screens */
+@media (max-width: 767px) {
+    .hamburger {
+        font-size: 25px; 
+        top: 15px; 
+        right: 15px; 
+    }
+
+    .overlay-content a {
+        font-size: 20px; 
+    }
+
+    .closebtn {
+        top: 15px; 
+        right: 30px; 
+        font-size: 30px; 
+    }
+}
+
+
+/* Story Section Styling */
+.story-container {
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 80px 20px; 
+    position: relative;
+    z-index: -1 
+}
+.story-section {
+    padding: 80px 20px; 
+    text-align: center; 
+    
+    color: white; 
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+    z-index: 1; 
+    position: relative; 
+}
+
+/* Heading Style */
+.story-heading {
+    font-size: 2.5rem; 
+    margin-bottom: 40px; 
+}
+
+/* Text Style */
+.story-text {
+    font-size: 1.2rem;
+    margin: 0 auto; 
+    max-width: 800px; 
+    margin-bottom: 30px; 
+    line-height: 1.6; 
+}
+
+
+
+/* Fade-in Animation Class */
+.fade-in {
+    opacity: 1; 
+    transform: translateY(0); 
+}
