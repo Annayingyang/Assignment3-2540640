@@ -230,3 +230,95 @@ body {
         font-size: 14px; /* Smaller text size */
     }
 }
+
+/* Graph section  */
+
+.graph-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #000000; /* Dark background for contrast */
+}
+
+.graph-heading {
+    font-family: 'Italiana', serif;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#happinessGraph {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) { /* Target screens up to 768px wide */
+    .graph-section {
+        padding: 30px 15px; /* Reduce padding for smaller screens */
+    }
+
+    .graph-heading {
+        font-size: 24px; /* Smaller font size for heading */
+        margin-bottom: 15px; /* Slightly reduce margin */
+    }
+
+    #happinessGraph {
+        max-width: 90%; /* Allow more flexibility in width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Sneak Peek Section */
+.sneak-peek {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #000000; /* Dark background for contrast */
+    color: #fff;
+}
+
+.sneak-peek-container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.sneak-peek-graph {
+    width: 300px; /* Width of the graph area */
+    height: 300px; /* Height of the graph area */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    background-color: #fff; /* White background for the graph */
+    border-radius: 10px; /* Rounded corners */
+    margin-right: 20px; /* Space between graph and text */
+}
+
+.sneak-peek-text {
+    max-width: 600px; /* Max width for the text */
+}
+
+.sneak-peek-text h2 {
+    font-family: 'Italiana', serif;
+    font-size: 28px;
+    margin-bottom: 15px; /* Gap between heading and paragraph */
+}
+
+.sneak-peek-text p {
+    font-size: 16px;
+    line-height: 1.5; /* Improved readability */
+}
+
+.peek-button {
+    padding: 10px 20px;
+    background-color: #f15025; /* Button color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px;
+    margin-top: 20px; /* Space above button */
+}
+
+.peek-button:hover {
+    background-color: #e14322; /* Darken button on hover */
+}
+
