@@ -8,16 +8,25 @@ function toggleNav() {
     }
 }
 
-// Function to detect when the story section is in the viewport
 function fadeInOnScroll() {
     const storySection = document.querySelector('.story-section');
-    const sectionPosition = storySection.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2; // Trigger when it's 20% into the viewport
+    const packageSection = document.querySelector('.package-section'); // Add the package section
 
-    if (sectionPosition < screenPosition) {
-        storySection.classList.add('fade-in'); // Add fade-in class
+    const windowHeight = window.innerHeight;
+    
+    // Check if the story section is in the viewport
+    const storySectionTop = storySection.getBoundingClientRect().top;
+    if (storySectionTop < windowHeight - 100) {
+        storySection.classList.add('fade-in');
+    }
+
+    // Check if the package section is in the viewport
+    const packageSectionTop = packageSection.getBoundingClientRect().top;
+    if (packageSectionTop < windowHeight - 100) {
+        packageSection.classList.add('fade-in');
     }
 }
 
-// Listen for scroll events
+// Add an event listener for scroll
 window.addEventListener('scroll', fadeInOnScroll);
+
