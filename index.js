@@ -1,5 +1,4 @@
 
-
 // Toggle Navigation
 function toggleNav() {
     const overlay = document.getElementById('navOverlay');
@@ -121,4 +120,3 @@ const storyObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 }); 
 
 storyObserver.observe(storySection);
-
