@@ -10,6 +10,8 @@ body {
     color: white; 
 }
 
+
+
 /* Hero Section Styling */
 .hero {
     height: 85vh;
@@ -26,7 +28,6 @@ body {
     overflow: hidden; 
     border-bottom-left-radius: 0 ;
     border-bottom-right-radius: 0; 
-    z-index: 1000;
 }
 
 .header-container .slogan {
@@ -49,8 +50,8 @@ body {
 /* Media query for larger screens */
 @media (min-width: 768px) {
     .hero {
-        border-bottom-left-radius: 100px; 
-        border-bottom-right-radius: 100px; 
+        border-bottom-left-radius: 300px; 
+        border-bottom-right-radius: 300px; 
     }
 }
 
@@ -197,151 +198,88 @@ body {
         max-width: 95%; 
     }
 }
-main {
-    display: flex;
-    flex: 1;
-    margin-top: 80px; 
+
+/* Photo Section */
+#photo-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #000000;
-    padding: 10px;
-    position: fixed; /* Fixes the sidebar in place */
-    top: 60px; /* Adjust according to your layout, if there’s a header */
-    left: 0;
-    height: calc(100% - 60px); /* Adjusts height to occupy the entire page minus the header space */
-    overflow-y: auto; /* Allows scrolling inside the sidebar if content overflows */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Italiana', serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.photo-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-    z-index: 0;
-    box-shadow: #ddddddcf;
+    grid-template-columns: repeat(3, 1fr);
     
+    gap: 20px;
+}
+
+/* Card Styles */
+.photo-card {
+    position: relative; /* Keep the card relative */
+    width: 100%; /* Full width of grid item */
+    height: 300px; /* Set a height for the card */
+    cursor: pointer; /* Show pointer on hover */
+    transition: transform 0.6s; /* Smooth transition for flip */
+    transform-style: preserve-3d; /* Preserve 3D effect */
+}
+
+.photo-card:hover .front {
+    transform: rotateY(180deg); /* Flip front side */
+}
+
+.photo-card:hover .back {
+    transform: rotateY(0deg); /* Show back side */
+}
+
+.photo-item {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height of the card */
+    backface-visibility: hidden; /* Hide back face */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.front {
+    /* Add styles for the front of the card */
+}
+
+.back {
+    transform: rotateY(180deg); /* Start with back side rotated */
+    /* Add styles for the back of the card */
 }
 
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.photo-card.flipped .front {
+    transform: rotateY(180deg); /* Rotate front side when flipped */
 }
 
-.sidebar li {
-    margin-bottom: 10px;
+.photo-card.flipped .back {
+    transform: rotateY(0); /* Show back side when flipped */
 }
 
-.sidebar a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    background-color: #000000;
-    display: block;
-    text-align: center;
-    border: 1px solid #ddd;
-    transition: all 0.3s ease;
-}
-
-.sidebar a:hover {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    transform: scale(1.05);
-}
-
-.content-grid {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 220px;
-    padding: 20px;
-}
-
-.content-item {
+/* Add styles for image */
+.photo-item img {
     width: 100%;
-    margin: 20px 0;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    border: 1px solid #ddd;
-    padding: 20px;
-    background-color: #272727de;
-    position: relative;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area of the card */
 }
-
-.content-item.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.content-item h1 {
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.content-item:hover h1 {
-    color:  #ababa7;
-}
-
-.content-item:hover{
-    transform: scale(1.01);
-
-}
-
-.content-details {
-    display: none;
-}
-
-.content-details.visible {
-    display: block;
-}
-
-.content-item img {
-    width: 100%;
-}
-
-.content-item .read-more {
-    display: block;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.content-item .read-more:hover {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-}
-
-/* Media Queries for responsive design */
-@media screen and (max-width: 768px) {
-    /* Adjust content grid for smaller screens */
-    .content-grid {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    /* Sidebar collapse on smaller screens */
-    .sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
-    }
-
-    .sidebar a {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .content-item {
-        padding: 15px;
-        margin: 15px 0;
-    }
-}
-
 
 /* Footer */
 footer {
@@ -349,8 +287,6 @@ footer {
     color: #fff; 
     padding: 20px 0; 
     text-align: center; 
-    position: relative;
-    z-index: 1000;
 }
 
 .footer-content {
