@@ -90,7 +90,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(52, 49, 49, 0.9);
+    background-color: rgba(0, 0, 0, 0.869);
     overflow-x: hidden;
     transition: 0.5s;
     z-index: 1000;
