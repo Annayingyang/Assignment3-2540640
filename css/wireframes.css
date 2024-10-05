@@ -13,7 +13,7 @@ body {
 /* Hero Section Styling */
 .hero {
     height: 85vh;
-    background-image: url('../img/img1.JPG'); 
+    background-image: url('../img/wirehero.jpg'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -88,7 +88,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(52, 49, 49, 0.9);
+    background-color:rgba(0, 0, 0, 0.869) ;
     overflow-x: hidden;
     transition: 0.5s;
     z-index: 1000;
@@ -322,25 +322,25 @@ main {
     .content-grid {
         margin-left: 0;
         padding: 10px;
+        flex-direction: column; /* Stack content items on top of each other */
     }
 
     /* Sidebar collapse on smaller screens */
     .sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
-    }
-
-    .sidebar a {
-        padding: 8px;
-        font-size: 14px;
+        display: none; /* Hide the sidebar */
     }
 
     .content-item {
         padding: 15px;
         margin: 15px 0;
     }
+
+    .sidebar a {
+        padding: 8px;
+        font-size: 14px;
+    }
 }
+
 
 
 /* Footer */
