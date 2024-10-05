@@ -16,7 +16,7 @@ body {
 /* Hero Section Styling */
 .hero {
     height: 85vh;
-    background-image: url('../img/img1.JPG'); 
+    background-image: url('../img/heroimg1.JPG'); 
     background-size: cover;
     background-position: center;
     display: flex;
