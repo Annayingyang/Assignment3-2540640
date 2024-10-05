@@ -5,6 +5,27 @@ function toggleNav() {
     overlay.style.width = overlay.style.width === '100%' ? '0' : '100%';
 }
 
+// Create navigation links
+const navLinks = [
+    { text: 'Home', href: 'index.html' },
+    { text: 'About Us', href: 'aboutus.html' },
+    { text: 'Packages', href: 'package.html' },
+    { text: 'Our Work', href: 'ourwork.html' },
+    { text: 'Online Wedding Invitation', href: 'weddinginvite.html' },
+    { text: 'Wireframes', href: 'wireframes.html' }
+];
+
+// Populate the overlay with navigation links
+const overlayContent = document.querySelector('.overlay-content');
+
+navLinks.forEach(link => {
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.textContent = link.text;
+    overlayContent.appendChild(a);
+});
+
+
 // Quote Form Toggle
 function openForm() {
     document.getElementById('quoteForm').style.display = 'flex';
