@@ -88,7 +88,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color:rgba(0, 0, 0, 0.869) ;
     overflow-x: hidden;
     transition: width 0.5s; 
 }
@@ -381,6 +381,9 @@ body {
 .about-us p {
     color: rgb(255, 255, 255);
     margin: 20px 0; 
+    max-width: 800px; 
+    margin: 0 auto 40px;
+    text-align: center; 
 }
 
 .about-us {
@@ -396,7 +399,6 @@ body {
 
 
 /* Mission Section */
-
 .mission {
     text-align: center;
     padding: 50px 20px;
@@ -406,13 +408,23 @@ body {
     color: rgb(255, 255, 255);
     text-transform: uppercase; 
     font-size: 28px; 
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Centered Paragraph Styles */
+.mission-paragraph {
+    font-size: 18px;
+    color: #fff; 
+    max-width: 800px; 
+    margin: 0 auto 40px; 
+    text-align: center; 
 }
 
 /* Packages Section */
 .packages {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between the packages */
+    gap: 20px; 
     padding: 50px;
     flex-wrap: wrap; 
 }
@@ -420,26 +432,42 @@ body {
 /* Individual Package Styling */
 .package {
     width: 250px; 
-    height: 350px; 
-    background-color: lightgray;
+    height: auto; 
+    background-color: rgb(0, 0, 0);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s;
     overflow: hidden; 
-
 }
 
+/* Image Styling */
 .package img {
     width: 100%; 
-    height: 100%; 
+    height: 350px;
     object-fit: cover; 
+}
+
+/* Title Below Each Image */
+.package-title {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-top: 10px; 
 }
 
 /* Package Hover Effect */
 .package:hover {
     transform: scale(1.1) rotate(5deg); 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+
+    .mission-paragraph {
+        font-size: 16px; /* Adjust text size for smaller screens */
+    }
 }
 
 
