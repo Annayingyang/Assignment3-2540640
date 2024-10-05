@@ -230,6 +230,12 @@ p {
 }
 
 /* Card Styles */
+.photo-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px; /* Space between grid items */
+}
+
 .photo-card {
     position: relative; /* Keep the card relative */
     width: 100%; /* Full width of grid item */
@@ -239,12 +245,8 @@ p {
     transform-style: preserve-3d; /* Preserve 3D effect */
 }
 
-.photo-card:hover .front {
-    transform: rotateY(180deg); /* Flip front side */
-}
-
-.photo-card:hover .back {
-    transform: rotateY(0deg); /* Show back side */
+.photo-card.flipped {
+    transform: rotateY(180deg); /* Flip the card when the class is added */
 }
 
 .photo-item {
@@ -254,6 +256,9 @@ p {
     display: flex; /* Use flexbox for centering content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+    position: absolute; /* Position absolutely for flipping */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
 }
 
 .front {
@@ -265,21 +270,6 @@ p {
     /* Add styles for the back of the card */
 }
 
-
-.photo-card.flipped .front {
-    transform: rotateY(180deg); /* Rotate front side when flipped */
-}
-
-.photo-card.flipped .back {
-    transform: rotateY(0); /* Show back side when flipped */
-}
-
-/* Add styles for image */
-.photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the entire area of the card */
-}
 
 /* Footer */
 footer {
