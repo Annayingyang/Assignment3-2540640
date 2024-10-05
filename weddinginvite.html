@@ -52,14 +52,28 @@
 <section class="graph-section">
     <h2 class="graph-heading">Pocketful of Joy: Watch Your Guests Light Up</h2>
     <div class="graph-container">
-        <svg id="happinessGraph" width="600" height="300"></svg>
+        <svg id="happinessGraph" ></svg>
     </div>
 </section>
 
+<!-- Weather section  section -->
+<body style="background-color: black; color: white;">
+    <section class="weather-forecast-section">
+        <h2 class="weather-heading">Ready to Set the Date?</h2>
+        <p class="weather-text">Now that you’ve got your wedding date in mind, let’s ensure it’s a day to remember for all the right reasons! With our online invitations, you can effortlessly share your wedding details with guests while keeping an eye on the weather. Imagine knowing whether to plan for a sun-soaked celebration or a cozy indoor affair—all while creating stunning invitations that set the perfect tone for your big day.</p>
+        <input type="text" id="cityInput" placeholder="Enter City" />
+        <button id="getWeatherBtn">Get Weather</button>
+        <div id="weatherTimeline"></div> <!-- Container for D3.js chart -->
+    </section>
     
-   
-    
-    
+    <div id="quoteForm" class="form-overlay">
+        <div class="form-content">
+            <span class="closebtn" onclick="closeForm()">&times;</span>
+            <div id="calendly-widget">
+                <!-- Calendly inline widget will be inserted here -->
+            </div>
+        </div>
+    </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
 

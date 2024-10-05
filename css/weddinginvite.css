@@ -123,6 +123,8 @@ body {
     cursor: pointer;
 }
 
+
+
 /* overlay for smaller screens */
 @media (max-width: 767px) {
     .hamburger {
@@ -141,6 +143,64 @@ body {
         font-size: 30px; 
     }
 }
+
+
+/* Quote button */
+.quote-btn,
+.footer-quote-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quote-btn:hover,
+.footer-quote-btn:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+
+/* Overlay styles */
+.form-overlay {
+    display: none; /* Initially hidden */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000; 
+}
+
+.form-content {
+    background-color: rgb(0, 0, 0); 
+    padding: 20px; 
+    border-radius: 12px; 
+    width: 90%; 
+    max-width: 600px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .form-content {
+        padding: 30px; 
+        max-width: 90%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .form-content {
+        padding: 20px; 
+        max-width: 95%; 
+    }
+}
+
 
 /* Intro 3D  */
 
@@ -161,25 +221,25 @@ body {
 }
 
 .invitation-template {
-    perspective: 1000px; /* Perspective for 3D effect */
-    margin-right: 20px; /* Space between template and text */
+    perspective: 1000px;
+    margin-right: 20px; 
 }
 
 .invitation-template img {
-    width: 300px; /* Adjust as needed */
+    width: 300px; 
     height: auto;
-    transition: transform 1s; /* Smooth rotation */
+    transition: transform 1s; 
 }
 
 .invitation-text {
-    max-width: 600px; /* Adjust width as needed */
+    max-width: 600px; 
 }
 
 .invitation-text h2 {
     font-family: 'Italiana', serif;
     font-size: 36px;
     color: #ffffff;
-    margin-bottom: 15px; /* Gap between heading and paragraph */
+    margin-bottom: 15px; 
 }
 
 .invitation-text p {
@@ -189,54 +249,53 @@ body {
 
 @media (max-width: 768px) {
     .wedding-invitation {
-        flex-direction: column; /* Stack the 3D model and text vertically */
+        flex-direction: column; 
         padding: 30px 15px;
     }
 
     .invitation-template {
-        margin-bottom: 20px; /* Add some space between the image and the text */
-        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; 
+        margin-right: 0; 
     }
 
     .invitation-template img {
-        width: 200px; /* Reduce image size for smaller screens */
+        width: 200px; 
     }
 
     .invitation-text {
-        text-align: center; /* Center text for mobile */
-        max-width: 90%; /* Ensure the text doesn't take up too much width */
+        text-align: center; 
+        max-width: 90%; 
     }
 
     .invitation-text h2 {
-        font-size: 28px; /* Smaller font for the heading */
+        font-size: 28px; 
     }
 
     .invitation-text p {
-        font-size: 16px; /* Slightly smaller font for the paragraph */
+        font-size: 16px; 
     }
 }
 
-/* Responsive for very small screens (max-width: 480px) */
+/*  small screens  */
 @media (max-width: 480px) {
     .invitation-template img {
-        width: 150px; /* Further reduce image size for very small screens */
+        width: 150px; 
     }
 
     .invitation-text h2 {
-        font-size: 24px; /* Smaller heading size */
+        font-size: 24px; 
     }
 
     .invitation-text p {
-        font-size: 14px; /* Smaller text size */
+        font-size: 14px; 
     }
 }
 
 /* Graph section  */
-
 .graph-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: #000000; /* Dark background for contrast */
+    background-color: #000000; 
 }
 
 .graph-heading {
@@ -246,79 +305,183 @@ body {
     margin-bottom: 20px;
 }
 
+.graph-container {
+    width: 100%; 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
 #happinessGraph {
-    max-width: 700px;
-    margin: 0 auto;
+    width: 100%; 
+    height: auto; 
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) { /* Target screens up to 768px wide */
+@media (max-width: 768px) { 
     .graph-section {
-        padding: 30px 15px; /* Reduce padding for smaller screens */
+        padding: 30px 15px; 
     }
 
     .graph-heading {
-        font-size: 24px; /* Smaller font size for heading */
-        margin-bottom: 15px; /* Slightly reduce margin */
-    }
-
-    #happinessGraph {
-        max-width: 90%; /* Allow more flexibility in width */
-        height: auto; /* Maintain aspect ratio */
+        font-size: 24px; 
+        margin-bottom: 15px; 
     }
 }
 
-/* Sneak Peek Section */
-.sneak-peek {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    background-color: #000000; /* Dark background for contrast */
-    color: #fff;
+
+/* Weather Forecast Section */
+.weather-forecast-section {
+    text-align: center; 
+    padding: 40px 20px; 
+    background-color: #222; 
+    border-radius: 8px; 
+    margin: 20px auto; 
+    max-width: 800px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-.sneak-peek-container {
-    display: flex;
-    align-items: flex-start; /* Align items at the top */
+/* Weather Heading */
+.weather-heading {
+    font-size: 2.5em; 
+    margin-bottom: 20px; 
 }
 
-.sneak-peek-graph {
-    width: 300px; /* Width of the graph area */
-    height: 300px; /* Height of the graph area */
-    overflow-y: scroll; /* Enable vertical scrolling */
-    background-color: #fff; /* White background for the graph */
-    border-radius: 10px; /* Rounded corners */
-    margin-right: 20px; /* Space between graph and text */
+/* Weather Text */
+.weather-text {
+    font-size: 1.2em; 
+    margin-bottom: 30px; 
 }
 
-.sneak-peek-text {
-    max-width: 600px; /* Max width for the text */
+/* Input Field */
+#cityInput {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 70%; 
+    max-width: 300px; 
+    margin-bottom: 20px; 
 }
 
-.sneak-peek-text h2 {
-    font-family: 'Italiana', serif;
-    font-size: 28px;
-    margin-bottom: 15px; /* Gap between heading and paragraph */
+/* Get Weather Button */
+#getWeatherBtn {
+    padding: 10px 20px; 
+    font-size: 1.2em;
+    border: none; 
+    border-radius: 5px; 
+    background-color: #ff9800; 
+    color: white;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    width: 70%; 
+    max-width: 300px; 
 }
 
-.sneak-peek-text p {
-    font-size: 16px;
-    line-height: 1.5; /* Improved readability */
+#getWeatherBtn:hover {
+    background-color: #e68a00; 
 }
 
-.peek-button {
-    padding: 10px 20px;
-    background-color: #f15025; /* Button color */
-    color: #fff; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 16px;
-    margin-top: 20px; /* Space above button */
+/* Weather Timeline Container */
+#weatherTimeline {
+    margin-top: 30px; 
+    display: flex; 
+    justify-content: center; 
+    overflow: hidden; 
+    width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+    padding: 10px; 
 }
 
-.peek-button:hover {
-    background-color: #e14322; /* Darken button on hover */
+/* Adjust the SVG for responsiveness */
+#weatherTimeline svg {
+    width: 100%; 
+    height: auto; 
 }
+
+
+.line {
+    fill: none; 
+    stroke: #ff9800; 
+    stroke-width: 2; 
+}
+
+.point {
+    fill: #ff9800; 
+    stroke: white;
+    stroke-width: 1; 
+}
+
+
+@media (max-width: 600px) {
+    #weatherTimeline {
+        padding: 5px; 
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .weather-heading {
+        font-size: 2em; 
+    }
+
+    .weather-text {
+        font-size: 1em; 
+        padding: 0 10px; 
+    }
+
+    #cityInput {
+        width: 90%; 
+    }
+
+    #getWeatherBtn {
+        width: 100%; 
+    }
+
+   
+    #weatherTimeline {
+        flex-direction: column; 
+        width: 100%; 
+        height: auto; 
+    }
+
+    
+    svg {
+        width: 100%; 
+        height: auto; 
+    }
+}
+
+/* footer  */
+footer {
+    background-color: #333; 
+    color: white; 
+    padding: 20px; 
+    text-align: center; 
+}
+
+.footer-content {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.social-links {
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 10px; 
+}
+
+.social-links a {
+    color: white; 
+    transition: color 0.3s; 
+}
+
+.social-links a:hover {
+    color: #f39c12; 
+}
+
+
 
