@@ -199,76 +199,131 @@ body {
     }
 }
 
-/* Photo Section */
-#photo-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
+/* Container for the Photo Section */
+.photo-section {
+    text-align: center; 
+    padding: 50px 0; 
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    text-align: center; 
+    padding: 50px 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    font-size: 2.5rem;
 }
 
-h2 {
-    font-family: 'Italiana', serif;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+/* Heading Styles */
+.container h2 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+    text-align: center; 
 }
 
-p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
+/* Paragraph Styles */
+.container p {
+    font-size: 1.2rem; 
+    margin-bottom: 40px; 
+    text-align: center; 
 }
 
+/* Grid Layout for Photo Cards */
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    justify-items: center; 
+    align-items: center; 
+    padding: 0 20px; 
     
-    gap: 20px;
 }
 
-/* Card Styles */
-.photo-grid {
-    display: grid; /* Use grid layout */
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 20px; /* Space between grid items */
-}
-
+/* Individual Photo Card */
 .photo-card {
-    position: relative; /* Keep the card relative */
-    width: 100%; /* Full width of grid item */
-    height: 300px; /* Set a height for the card */
-    cursor: pointer; /* Show pointer on hover */
-    transition: transform 0.6s; /* Smooth transition for flip */
-    transform-style: preserve-3d; /* Preserve 3D effect */
+    position: relative; 
+    width: 280px; 
+    height: 380px; 
+    cursor: pointer; 
+    transition: transform 0.6s; 
+    transform-style: preserve-3d; 
+   
 }
 
+/* Flip the Card on Click */
 .photo-card.flipped {
-    transform: rotateY(180deg); /* Flip the card when the class is added */
+    transform: rotateY(180deg); 
 }
 
+/* Front and Back of the Card */
 .photo-item {
-    width: 100%; /* Full width of the card */
-    height: 100%; /* Full height of the card */
-    backface-visibility: hidden; /* Hide back face */
-    display: flex; /* Use flexbox for centering content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    position: absolute; /* Position absolutely for flipping */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
+    width: 100%; 
+    height: 100%; 
+    backface-visibility: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    overflow: hidden; 
 }
 
+/* Front Side Styles */
 .front {
-    /* Add styles for the front of the card */
+    background-color: #f0f0f0; 
 }
 
+/* Back Side Styles */
 .back {
-    transform: rotateY(180deg); /* Start with back side rotated */
-    /* Add styles for the back of the card */
+    transform: rotateY(180deg); 
+    background-color: #000; 
+    color: #fff; 
+    padding: 20px; 
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
+
+/* Image Styles */
+.front img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* Style for the text in the back */
+.back p {
+    margin: 0; 
+    text-align: center; 
+}
+
+/* video section */
+.video-section {
+    text-align: center; 
+    padding: 50px 0; 
+}
+
+.video-grid {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; /* Space between video items */
+    flex-wrap: wrap; /* Wraps the video items on smaller screens */
+}
+
+.video-item {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, and base size for responsiveness */
+    max-width: 300px; /* Maximum width of each video item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
+
+video {
+    width: 100%; /* Full width for responsiveness */
+    border-radius: 8px; /* Optional rounding of corners */
+}
+
 
 
 /* Footer */
