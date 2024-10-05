@@ -15,7 +15,7 @@ body {
 /* Hero Section Styling */
 .hero {
     height: 85vh;
-    background-image: url('../img/img1.JPG'); 
+    background-image: url('../img/heroimg2.JPG'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -89,7 +89,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(52, 49, 49, 0.9);
+    background-color: rgba(0, 0, 0, 0.869);
     overflow-x: hidden;
     transition: 0.5s;
     z-index: 1000;
@@ -299,6 +299,52 @@ body {
     margin: 0; 
     text-align: center; 
 }
+/* Media Queries for Smaller Screens */
+@media (max-width: 900px) {
+    .container {
+        font-size: 2rem; 
+    }
+
+    .container h2 {
+        font-size: 2rem; 
+    }
+
+    .container p {
+        font-size: 1rem; 
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .photo-card {
+        width: 90%; 
+        height: 300px; 
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        font-size: 1.5rem; 
+    }
+
+    .container h2 {
+        font-size: 1.5rem; /
+    }
+
+    .container p {
+        font-size: 0.9rem; 
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .photo-card {
+        width: 100%;
+        height: 250px; 
+    }
+}
 
 /* video section */
 .video-section {
@@ -309,19 +355,19 @@ body {
 .video-grid {
     display: flex; 
     justify-content: center; 
-    gap: 20px; /* Space between video items */
-    flex-wrap: wrap; /* Wraps the video items on smaller screens */
+    gap: 20px; 
+    flex-wrap: wrap; 
 }
 
 .video-item {
-    flex: 1 1 300px; /* Flex-grow, flex-shrink, and base size for responsiveness */
-    max-width: 300px; /* Maximum width of each video item */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    flex: 1 1 300px; 
+    max-width: 300px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 video {
-    width: 100%; /* Full width for responsiveness */
-    border-radius: 8px; /* Optional rounding of corners */
+    width: 100%; 
+    border-radius: 8px; 
 }
 
 
