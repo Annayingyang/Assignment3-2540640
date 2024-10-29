@@ -58,6 +58,10 @@ function loadCalendly() {
     }
 }
 
+window.addEventListener('scroll', () => {
+    document.body.classList.add('scrolled');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.content-item');
     const readMoreButtons = document.querySelectorAll('.read-more');

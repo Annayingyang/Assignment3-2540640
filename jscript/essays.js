@@ -58,6 +58,11 @@ function loadCalendly() {
     }
 }
 
+window.addEventListener('scroll', () => {
+    document.body.classList.add('scrolled');
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const essayGrid = document.querySelector('.essay-grid'); // Your essay grid
     const readMoreButtons = document.querySelectorAll('.read-more');

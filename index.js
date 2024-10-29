@@ -143,6 +143,11 @@ const storyObserver = new IntersectionObserver((entries) => {
 
 storyObserver.observe(storySection);
 
+window.addEventListener('scroll', () => {
+    document.body.classList.add('scrolled');
+});
+
+
 // Function to create and append the footer to the body
 function createFooter() {
     // Create footer element

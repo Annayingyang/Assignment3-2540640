@@ -84,6 +84,10 @@ function fadeInOnScroll() {
 // Add an event listener for scroll
 window.addEventListener('scroll', fadeInOnScroll);
 
+window.addEventListener('scroll', () => {
+    document.body.classList.add('scrolled');
+});
+
 // Function to create and append the footer to the body
 function createFooter() {
     // Create footer element
