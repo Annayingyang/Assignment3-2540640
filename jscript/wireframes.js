@@ -62,6 +62,26 @@ window.addEventListener('scroll', () => {
     document.body.classList.add('scrolled');
 });
 
+// back to top  the button
+const backToTopButton = document.getElementById("backToTop");
+
+// Show the button when scrolling down
+window.onscroll = function () {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopButton.classList.add("show");
+    } else {
+        backToTopButton.classList.remove("show");
+    }
+};
+
+backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.content-item');
     const readMoreButtons = document.querySelectorAll('.read-more');

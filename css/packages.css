@@ -471,6 +471,37 @@ body.scrolled .scroll-indicator {
     }
 }
 
+
+/* back to the top section */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0); 
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none; 
+    font-size: 16px;
+    transition: opacity 0.3s ease; 
+}
+
+.back-to-top.show {
+    display: block; 
+    opacity: 1; 
+}
+
+@media (max-width: 600px) {
+    .back-to-top {
+        bottom: 15px; 
+        right: 15px;
+        font-size: 14px; 
+    }
+}
+
+
 /* Footer */
 footer {
     background-color: #222; 
