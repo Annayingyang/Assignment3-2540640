@@ -114,3 +114,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const openEssayButtons = document.querySelectorAll('.open-essay');
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfViewer = document.getElementById('pdfViewer');
+    const closePdfButton = document.querySelector('.close-pdf');
+    
+    // Open PDF in modal
+    openEssayButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const pdfSrc = button.getAttribute('data-pdf'); // Get PDF link from data attribute
+            pdfViewer.src = pdfSrc;
+            pdfModal.style.display = 'flex';
+        });
+    });
+
+    // Close modal
+    closePdfButton.addEventListener('click', () => {
+        pdfModal.style.display = 'none';
+        pdfViewer.src = ''; // Clear src to stop loading the PDF
+    });
+});
+
+

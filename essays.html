@@ -39,7 +39,8 @@
             <div class="essay-card" data-essay="1">
                 <h2>1</h2>
                 <p>Decoding Gumtree: A Journey through UI, UX, and Ethical Dimensions</p>
-                <button class="read-more">Read More</button>
+                <button class="read-more">Description</button> <!-- Changed according to feedback to prevent view to open with downloading  -->
+                <button class="open-essay" data-pdf="Essays/Essayone.pdf">Open Essay</button>
                 <a href="Essays/Essayone.pdf" class="download" download>Download</a>
                 <div class="essay-content">
                     <h2>Decoding Gumtree: A Journey through UI, UX, and Ethical Dimensions</h2>
@@ -51,7 +52,8 @@
             <div class="essay-card" data-essay="2">
                 <h2>2</h2>
                 <p>Digital Colonialism in Google's Workforce Redistribution: A South African Perspective</p>
-                <button class="read-more">Read More</button>
+                <button class="read-more">Description</button>
+                <button class="open-essay" data-pdf="Essays/Essaytwo.pdf">Open Essay</button>
                 <a href="Essays/Essaytwo.pdf" class="download" download>Download</a>
                 <div class="essay-content">
                     <h2>Digital Colonialism in Google's Workforce Redistribution: A South African Perspective</h2>
@@ -63,8 +65,10 @@
             <div class="essay-card" data-essay="3">
                 <h2>3</h2>
                 <p>Critical Analysis of "You Draw It: How Family Income Predicts Children’s College Chances" by The New York Times</p>
-                <button class="read-more">Read More</button>
+                <button class="read-more">Description</button>
+                <button class="open-essay" data-pdf="Essays/Essaythree.pdf">Open Essay</button>
                 <a href="Essays/Essaythree.pdf" class="download" download>Download</a>
+               
                 <div class="essay-content">
                     <h2>Critical Analysis of "You Draw It: How Family Income Predicts Children’s College Chances" by The New York Times</h2>
                     <p>"You Draw It: How Family Income Predicts Children's College Chances" is a data journalism project published by The New York Times in 2015. With this article, readers can interactively see how family income predicts the chances of children going to college. This is an article where a reader can draw something on canvas, and it will compare the assumption to real data. This procedure is designed to reveal and challenge any of the user's preconceived notions about socio-economic inequalities.</p>
@@ -75,8 +79,10 @@
             <div class="essay-card" data-essay="4">
                 <h2>4</h2>
                 <p>Description is still coming</p>
-                <button class="read-more">Read More</button>
+                <button class="read-more">Description</button>
+                <button class="open-essay" data-pdf="Essays/Essayfour.pdf">Open Essay</button>
                 <a href="Essays/Essayfour.pdf" class="download" download>Download</a>
+               
                 <div class="essay-content">
                     <h2>Essay 4 Title</h2>
                     <p>Description for essay 4 is still coming.</p>
@@ -87,8 +93,10 @@
             <div class="essay-card" data-essay="5">
                 <h2>5</h2>
                 <p>Description is still coming</p>
-                <button class="read-more">Read More</button>
+                <button class="read-more">Description</button>
+                <button class="open-essay" data-pdf="Essays/Essayfive.pdf">Open Essay</button>
                 <a href="Essays/Essayfive.pdf" class="download" download>Download</a>
+               
                 <div class="essay-content">
                     <h2>Essay 5 Title</h2>
                     <p>Description for essay 5 is still coming.</p>
@@ -105,6 +113,14 @@
         <span class="dot" data-essay="4"></span>
         <span class="dot" data-essay="5"></span>
     </div>
+
+    <div id="pdfModal" class="pdf-modal">
+        <div class="modal-content">
+            <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+            <button class="close-pdf">X</button>
+        </div>
+    </div>
+
     </main>
     
 

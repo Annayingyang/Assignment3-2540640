@@ -246,7 +246,7 @@ body {
     margin: 0 0 20px;
 }
 
-.read-more, .download {
+.read-more, .download, .open-essay  {
     background-color: #ffffff; 
     color: rgb(0, 0, 0);
     border: none;
@@ -258,7 +258,7 @@ body {
     border-radius: 5px; 
 }
 
-.read-more:hover, .download:hover {
+.read-more:hover, .download:hover, .open-essay:hover {
     background-color: #000000; 
     color: #ffffff; 
     transform: scale(1.1);
@@ -342,6 +342,55 @@ body {
     .read-more, .download {
         padding: 8px 16px; 
     }
+}
+
+/* pdf on website styling */
+.pdf-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+iframe#pdfViewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.close-pdf {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 5px 10px;
+    background: rgb(43, 40, 40);
+    color: white;
+    border: none;
+    border-radius: 0.5px;
+    cursor: pointer;
+}
+
+.close-pdf:hover {
+    background-color: #ffffff; 
+    color: #000000; 
+    transform: scale(1.1);
 }
 
 
