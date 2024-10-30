@@ -393,6 +393,24 @@ iframe#pdfViewer {
     transform: scale(1.1);
 }
 
+@media (max-width: 600px) {
+    .pdf-modal {
+        width: 100vw;
+        height: 85vh;
+    }
+
+    .pdf-modal .modal-content {
+        border-radius: 8px;
+    }
+
+    .pdf-modal .close-modal {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+}
+
+
+/* the dot scrolling */
 
 .dot-navigation {
     display: flex;
