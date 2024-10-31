@@ -294,10 +294,22 @@ main {
 
 .content-details.visible {
     display: block;
+    text-align: center;
 }
 
-.content-item img {
-    width: 100%;
+.image-container {
+    width: 50%; /* Full width */
+    max-height: 300px; /* Maximum height for image container */
+    overflow-y: auto; /* Allow vertical scrolling */
+    margin-bottom: 20px; /* Space below image */
+    margin: 40px auto 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(180, 180, 180, 0.5);
+}
+
+.image-container img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .content-item .read-more {
