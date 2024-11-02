@@ -346,6 +346,12 @@ main {
         flex-direction: column; /* Stack content items on top of each other */
     }
 
+    .content-details.visible h2,
+    .content-details.visible p {
+        padding: 15px; /* Reduce padding for better fit on smaller screens */
+        font-size: 18px; /* Optional: slightly smaller font size */
+    }
+
     /* Sidebar collapse on smaller screens */
     .sidebar {
         display: none; /* Hide the sidebar */
