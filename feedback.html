@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Red Pocket Studio</title>
+    <link rel="stylesheet" href="css/feedback.css">
+
+        <!-- new added Meta Tags for SEO as suggested by Imaan   -->
+        <meta name="description" content="Learn about Red Pocket Studio, a team dedicated to capturing your most precious moments through cinematography and photography.">
+        <meta name="keywords" content="Red Pocket Studio, wedding videography, event photography, cinematography, storytelling">
+        
+        
+        <meta property="og:title" content="Feedback | Red Pocket Studio">
+        <meta property="og:description" content="At Red Pocket Studio, we believe every story deserves to be told in the most captivating way possible. Learn about our mission and our dedicated team.">
+        <meta property="og:image" content="https://annayingyang.github.io/Assignment3-2540640/feedback.html"> 
+        <meta property="og:url" content="https://annayingyang.github.io/Assignment3-2540640/feedback.html">
+        <meta property="og:type" content="website">
+</head>
+
+<body>
+
+    
+    
+
+         <!-- Hamburger Menu -->
+         <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+         <div id="navOverlay" class="overlay">
+             <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+             <div class="overlay-content"></div>
+         </div>
+     </header>
+
+     <section class="form-section">
+        <h1>Feedback Form</h1>
+        <form id="contactForm" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <small class="error"></small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <small class="error"></small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter a secure password" required>
+                <small class="error"></small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                <small class="error"></small>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Type your message" required></textarea>
+                <small class="error"></small>
+            </div>
+            <button type="submit">Submit</button>
+            <div id="successMessage" class="success hidden">Thank you! Your message has been successfully submitted.</div>
+        </form>
+    </section>
+
+
+    
+    
+    
+    <!-- moved  Footer -->
+    
+    
+    
+        <script src="jscript/feedback.js"></script>
+        
+    
+    </body>
+    
+    
+    
+    
+    </html>
+    
