@@ -15,7 +15,7 @@ const navLinks = [
     { text: 'Online Wedding Invitation', href: 'weddinginvite.html' },
     { text: 'Wireframes', href: 'wireframes.html' },
     { text: 'Essays', href: 'essays.html' },
-    { text: 'Feedback', href: 'feedback.html' }
+    { text: 'Feedback Form', href: 'feedback.html' }
     
 ];
 

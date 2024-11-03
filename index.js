@@ -13,7 +13,8 @@ const navLinks = [
     { text: 'Our Work', href: 'ourwork.html' },
     { text: 'Online Wedding Invitation', href: 'weddinginvite.html' },
     { text: 'Wireframes', href: 'wireframes.html' },
-    { text: 'Essays', href: 'essays.html' }
+    { text: 'Essays', href: 'essays.html' },
+    {text: 'Feedback form', href: 'feedback.html' }
 ];
 
 // Populate the overlay with navigation links
