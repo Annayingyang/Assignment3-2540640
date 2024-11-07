@@ -533,6 +533,38 @@ button:hover {
     background-color: #777;
 }
 
+@media (max-width: 600px) {
+    #diamondChartContainer {
+        text-align: center;
+        margin: 10px;
+    }
+    
+    h2 {
+        font-size: 24px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+    
+    #loadingMessage {
+        font-size: 20px;
+    }
+    
+    #filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    select, button {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+    }
+    
+    #diamondChart {
+        margin-top: 10px;
+    }
+}
+
 /*scroll section*/
 
 @keyframes bounce {
