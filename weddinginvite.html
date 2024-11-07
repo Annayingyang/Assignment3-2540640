@@ -62,14 +62,46 @@
 </section>
 
 <!-- Weather section  section -->
-<body style="background-color: black; color: white;">
     <section class="weather-forecast-section">
         <h2 class="weather-heading">Ready to Set the Date?</h2>
-        <p class="weather-text">Now that you’ve got your wedding date in mind, let’s ensure it’s a day to remember for all the right reasons! With our online invitations, you can effortlessly share your wedding details with guests while keeping an eye on the weather. Imagine knowing whether to plan for a sun-soaked celebration or a cozy indoor affair—all while creating stunning invitations that set the perfect tone for your big day.</p>
+        <p class="weather-text">With our online invitations, you can effortlessly share wedding details while keeping an eye on weather trends. Imagine knowing whether to plan for a sun-soaked celebration or a cozy indoor affair—all while creating stunning invitations for your big day.</p>
         <input type="text" id="cityInput" placeholder="Enter City" />
         <button id="getWeatherBtn">Get Weather</button>
-        <div id="weatherTimeline"></div> <!-- Container for D3.js chart -->
+        <div id="weatherTimeline"></div> 
     </section>
+
+    <section id="diamondChartContainer">
+        <h2>Diamond Price Bubble Chart</h2>
+        <div id="filterSection">
+            <!-- Dropdown for selecting color -->
+            <select id="colorSelect">
+                <option value="Blue">Blue</option>
+                <option value="Pink">Pink</option>
+                <option value="Orangey">Orangey</option>
+                <option value="All">All Colors</option> 
+            </select>
+    
+            <select id="sizeFilter">
+                <option value="">Filter by Size</option>
+                <option value="1">1 Carat</option>
+                <option value="5">5 Carats</option>
+                <option value="10">10 Carats</option>
+            </select>
+            <button id="loadDiamondDataBtn">Load Diamond Data</button>
+        </div>
+        
+        
+        <div id="loadingMessage" style="display: none;">Loading...</div>
+    
+        <!-- Diamond Chart -->
+        <div id="diamondChart"></div>
+    </section>
+    
+
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+
     
     <div id="quoteForm" class="form-overlay">
         <div class="form-content">

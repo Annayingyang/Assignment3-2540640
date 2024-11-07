@@ -412,6 +412,33 @@ body {
     stroke-width: 1; 
 }
 
+.tooltip {
+    position: absolute;
+    background-color: #fff; 
+    color: #333; 
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    pointer-events: none;
+    width: auto;
+    max-width: 250px;
+    white-space: normal;
+    font-size: 14px;
+}
+
+
+#weatherTimeline {
+    position: relative;
+    overflow: visible;  /* Ensure tooltip is not clipped */
+}
+
+
+
+
+
 
 @media (max-width: 600px) {
     #weatherTimeline {
@@ -451,6 +478,59 @@ body {
         width: 100%; 
         height: auto; 
     }
+}
+
+
+/* Diamond Chart Section */
+#diamondChartContainer {
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    color: white; /* Gold for title */
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 32px;
+}
+
+#diamondChart {
+    margin-top: 20px;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    pointer-events: none;
+}
+
+#loadingMessage {
+    color: white;
+    font-size: 24px;
+}
+
+#filters {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+select, button {
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #777;
 }
 
 /*scroll section*/

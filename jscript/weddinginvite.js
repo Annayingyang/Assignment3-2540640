@@ -176,13 +176,11 @@ function renderHappinessGraph() {
 
 
 
-
-
 //weather section
-// Add event listener to the button
+
 document.getElementById('getWeatherBtn').addEventListener('click', function() {
-    const city = document.getElementById('cityInput').value; 
-    const apiKey = '5724267900be42ab902234804240410'; 
+    const city = document.getElementById('cityInput').value;
+    const apiKey = '5724267900be42ab902234804240410';
     const weatherEndpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
 
     // Fetch weather data
@@ -197,16 +195,16 @@ document.getElementById('getWeatherBtn').addEventListener('click', function() {
             const forecasts = data.forecast.forecastday;
             const dates = forecasts.map(forecast => new Date(forecast.date)); // Convert date string to Date
             const temperatures = forecasts.map(forecast => forecast.day.avgtemp_c); // Get average temperatures
-            
-            createWeatherTimeline(dates, temperatures);
+
+            createWeatherTimeline(dates, temperatures, forecasts); // Pass forecasts too
         })
         .catch(error => console.error('Error fetching weather data:', error));
 });
 
 // Create D3.js timeline visualization function
-function createWeatherTimeline(dates, temperatures) {
+function createWeatherTimeline(dates, temperatures, forecasts) {
     const margin = { top: 20, right: 30, bottom: 30, left: 60 };
-    
+
     // Dynamically set width based on the container size
     const width = document.getElementById('weatherTimeline').clientWidth - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -246,7 +244,198 @@ function createWeatherTimeline(dates, temperatures) {
 
     svg.append("g")
         .call(d3.axisLeft(y));
+
+    // Add circles (dots) for each day's temperature
+    const dots = svg.selectAll("circle")
+        .data(forecasts) 
+        .enter()
+        .append("circle")
+        .attr("cx", (d, i) => x(dates[i])) 
+        .attr("cy", d => y(d.day.avgtemp_c))  
+        .attr("r", 5)  
+        .attr("fill", "#ff9800");
+
+    // Add tooltip for when you hover over the dots
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background", "#fff")
+        .style("border", "1px solid #ccc")
+        .style("padding", "5px")
+        .style("border-radius", "3px")
+        .style("display", "none");
+
+        dots.on("mouseover", function(event, d) {
+            const tooltipContent = `
+                <strong>Date:</strong> ${d3.timeFormat("%Y-%m-%d")(new Date(d.date))}<br>
+                <strong>Temperature:</strong> ${d.day.avgtemp_c}°C
+            `;
+            
+            
+        
+            tooltip.style("display", "block")
+                .html(tooltipContent)
+                .style("left", (event.pageX + 5) + "px")
+                .style("top", (event.pageY - 30) + "px");
+
+               
+        });
 }
+
+//diamond
+const url = 'https://diamond-api1.p.rapidapi.com/';
+const options = {
+    method: 'GET',
+    headers: {
+        'x-rapidapi-key': '368f314768msh35beee0ff76c364p1be35cjsn45ee135ee7da',
+        'x-rapidapi-host': 'diamond-api1.p.rapidapi.com'
+    }
+};
+
+// tore the fetched data
+let diamondData = [];
+
+async function fetchDiamondData() {
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        diamondData = data; // Store the fetched data globally
+        console.log("First 5 items of the data:", data.slice(0, 5));
+        
+        if (data && Array.isArray(data) && data.length > 0) {
+            
+            applyFilterAndRenderChart();
+        } else {
+            console.error("No valid data found");
+            document.getElementById("loadingMessage").innerText = "No valid data available.";
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        document.getElementById("loadingMessage").innerText = "Error loading data.";
+    }
+}
+
+// Appy filter and render the chart
+function applyFilterAndRenderChart() {
+    const selectedColor = document.getElementById("colorSelect").value;
+    const selectedSize = document.getElementById("sizeFilter").value;
+
+    
+    let filteredData = diamondData;
+
+    if (selectedColor !== "All") {
+        filteredData = filteredData.filter(d => d.fancy_color_dominant_color.toLowerCase() === selectedColor.toLowerCase());
+    }
+
+    if (selectedSize) {
+        filteredData = filteredData.filter(d => d.size === parseFloat(selectedSize));
+    }
+
+    
+    renderDiamondChart(filteredData);
+}
+
+// Render the chart function
+function renderDiamondChart(data) {
+    
+    d3.select("#diamondChart").select("svg").remove();
+
+    const svgWidth = 800;
+    const svgHeight = 600;
+    const margin = 50;
+
+    // Create SVG container for the chart
+    const svg = d3.select("#diamondChart")
+                  .append("svg")
+                  .attr("width", svgWidth)
+                  .attr("height", svgHeight);
+
+    // Set scales for the X and Y axes and bubble sizes
+    const xScale = d3.scaleLinear()
+                     .domain([0, d3.max(data, d => d.size)])
+                     .range([margin, svgWidth - margin]);
+
+    const yScale = d3.scaleLinear()
+                     .domain([0, d3.max(data, d => d.total_sales_price)])
+                     .range([svgHeight - margin, margin]);
+
+    const sizeScale = d3.scaleSqrt()
+                        .domain([0, 5])
+                        .range([5, 50]);
+
+    // Create bubbles based on the data
+    const bubbles = svg.selectAll("circle")
+                       .data(data)
+                       .enter()
+                       .append("circle")
+                       .attr("cx", d => xScale(d.size))
+                       .attr("cy", d => yScale(d.total_sales_price))
+                       .attr("r", d => sizeScale(d.clarity === 'I1' ? 1 : (d.clarity === 'SI1' ? 2 : 3)))
+                       .attr("fill", "white") 
+                       .attr("stroke", "black")
+                       .attr("stroke-width", 1)
+                       .on("mouseover", function(event, d) {
+                           d3.select(this).attr("fill", "rgba(255, 215, 132, 0.7)"); 
+                           tooltip.style("display", "block")
+                                  .html(`Price: $${d.total_sales_price}<br>Carat: ${d.size}<br>Clarity: ${d.clarity}`)
+                                  .style("left", `${event.pageX + 10}px`)
+                                  .style("top", `${event.pageY - 30}px`);
+                       })
+                       .on("mouseout", function() {
+                           d3.select(this).attr("fill", "white");
+                           tooltip.style("display", "none");
+                       });
+
+    // Create X and Y axis with labels
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+
+    svg.append("g")
+       .attr("transform", `translate(0, ${svgHeight - margin})`)
+       .call(xAxis);
+
+    svg.append("g")
+       .attr("transform", `translate(${margin}, 0)`)
+       .call(yAxis);
+
+    // Axis labels with larger font size
+    svg.append("text")
+       .attr("transform", `translate(${svgWidth / 2}, ${svgHeight - 10})`)
+       .style("text-anchor", "middle")
+       .style("font-size", "18px") 
+       .style("font-weight", "bold") 
+       .text("Carat Size");
+
+    svg.append("text")
+       .attr("transform", `translate(20, ${svgHeight / 2}) rotate(-90)`)
+       .style("text-anchor", "middle")
+       .style("font-size", "18px") 
+       .style("font-weight", "bold") 
+       .text("Price ($)");
+
+    // Tooltip element
+    const tooltip = d3.select("body")
+                      .append("div")
+                      .attr("class", "tooltip")
+                      .style("position", "absolute")
+                      .style("background", "rgba(0, 0, 0, 0.7)")
+                      .style("color", "#fff")
+                      .style("padding", "5px")
+                      .style("border-radius", "5px")
+                      .style("display", "none");
+}
+
+// Event listener for the Load Diamond Data button
+document.getElementById("loadDiamondDataBtn").addEventListener("click", function() {
+    document.getElementById("loadingMessage").style.display = "block"; 
+    fetchDiamondData(); 
+});
+
+
+
+
+
 
 // Quote Form Toggle
 function openForm() {
