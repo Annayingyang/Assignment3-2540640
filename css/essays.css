@@ -339,7 +339,7 @@ body {
         font-size: 0.9em; 
     }
 
-    .read-more, .download {
+    .read-more, .download, .open-essay {
         padding: 8px 16px; 
     }
 }
